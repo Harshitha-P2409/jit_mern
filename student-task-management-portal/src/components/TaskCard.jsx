@@ -7,6 +7,7 @@ function TaskCard(props) {
 
             <p> {props.status}</p>
             <button onClick={props.onToggle}>Change Status</button>
+            <button onClick={props.onDelete}>Delete Task</button>
         </div>
     );
 }

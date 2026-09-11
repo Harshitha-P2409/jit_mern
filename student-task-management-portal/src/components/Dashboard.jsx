@@ -24,6 +24,10 @@ function Dashboard() {
     );
   }
 
+ function deleteTask(id) {
+        setTasks(tasks.filter(task => task.id !== id));
+    }
+
   function addTask(newTask) {
     setTasks([...tasks, newTask]);
   }
@@ -43,7 +47,7 @@ function Dashboard() {
             <div className="tasks-container">
                 {tasks.map((task) => (
                     <TaskCard key={task.id} title={task.title} description={task.description} status={task.status}
-                    onToggle={() => toggleTask(task.id)} />
+                    onToggle={() => toggleTask(task.id)} onDelete={() => deleteTask(task.id)} />
                 ))}
             </div>
 
