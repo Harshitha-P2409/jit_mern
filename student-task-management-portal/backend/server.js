@@ -1,7 +1,12 @@
 //bring express in Node.js
 const express=require("express")
+const cors=require("cors");
+
 //create express app using what we imported
 const app=express();
+
+//use cors middleware to handle requests
+app.use(cors());
 
 const tasks=[
           {
