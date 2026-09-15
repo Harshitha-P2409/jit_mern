@@ -1,3 +1,4 @@
+import Welcome from "./Welcome";
 import StatCard from "./StatCard";
 import TaskCard from "./TaskCard";
 import AddTask from "./AddTask";
@@ -29,35 +30,39 @@ function Dashboard(props) {
         );
     }
 
+    const totalTasks = props.tasks.length;
+    const completedTasks = props.tasks.filter((task) => task.status === "Completed").length;
+    const pendingTasks = props.tasks.filter((task) => task.status !== "Completed").length;
+
     return (
-        <main>
-        
-            <div className="stats-container">
-                <StatCard title="Total Tasks" value="10"/>
-                <StatCard title="Completed" value="6"/>
-                <StatCard title="Pending" value="4"/>
-                
-            </div>
+        <>
+            <Welcome />
+            <main>
+                <div className="stat-container stats-container">
+                    <StatCard title="Total Tasks" value={totalTasks} />
+                    <StatCard title="Completed" value={completedTasks} />
+                    <StatCard title="Pending" value={pendingTasks} />
+                </div>
 
-            <AddTask  onAddTask={addTask}/>
+                <AddTask onAddTask={addTask} />
 
-            <h2>Recent Tasks</h2>
+                <h2>Recent Tasks</h2>
 
-            <div className="tasks-container">
-                {props.tasks.map((task)=>(
-                    <TaskCard 
-                        key={task.id} 
-                        id ={task.id}
-                        title={task.title} 
-                        description={task.description} 
-                        status={task.status}
-                        onToggle={()=>toggleTask(task.id)} 
-                        onDelete={()=>deleteTask(task.id)}
-                    />
-                ))};
-            </div>
-
-        </main>
+                <div className="task-container tasks-container">
+                    {props.tasks.map((task)=>(
+                        <TaskCard 
+                            key={task.id} 
+                            id={task.id}
+                            title={task.title} 
+                            description={task.description} 
+                            status={task.status}
+                            onToggle={()=>toggleTask(task.id)} 
+                            onDelete={()=>deleteTask(task.id)}
+                        />
+                    ))}
+                </div>
+            </main>
+        </>
     );
 }
 

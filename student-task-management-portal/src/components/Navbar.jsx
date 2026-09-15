@@ -1,12 +1,13 @@
-import {Link} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+
 function Navbar() {
     return (
         <nav>
             <h2>Student Task Portal</h2>
 
             <div className="nav-links">
-                <Link to="/">Dashboard</Link>
-                <Link to={"/tasks"}>Tasks</Link>
+                <NavLink to="/" end>Dashboard</NavLink>
+                <NavLink to="/tasks">Tasks</NavLink>
             </div>
         </nav>
     );

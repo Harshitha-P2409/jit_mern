@@ -1,9 +1,7 @@
 import "./App.css";
-
 import Navbar from "./components/Navbar";
-import Welcome from "./components/Welcome";
 import Dashboard from "./components/Dashboard";
-import {Routes, Route} from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 import Tasks from "./components/Tasks";
 import TaskDetails from "./components/TaskDetails";
 import { useState,useEffect} from "react";
