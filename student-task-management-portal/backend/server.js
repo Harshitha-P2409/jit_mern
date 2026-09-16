@@ -35,6 +35,16 @@ app.get("/api/tasks/:id",(req,res)=>{
 
 });
 
+app.put("/api/tasks/:id",(req,res)=>{
+    const id=Number(req.params.id);
+    const task=tasks.find((task)=>task.id===id);
+    if(!task){
+        return res.status(404).json({message:"Task not foundddd"})
+    }
+    task.status=req.body.status;
+    res.json(task);
+})
+
 
 app.post("/api/tasks",(req,res)=>{
     const newTask=req.body;
