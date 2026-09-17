@@ -41,7 +41,7 @@ function Tasks(props) {
                                     <p className="task-grid-desc">{task.description}</p>
                                 </div>
                                 <div className="task-grid-footer">
-                                    <Link to={`/tasks/${task.id}`} className="view-detail-link">
+                                    <Link to={`/tasks/${task._id}`} className="view-detail-link">
                                         View Details &rarr;
                                     </Link>
                                 </div>
